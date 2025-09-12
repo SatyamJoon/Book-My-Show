@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  bms-app:
+    image: satyam744/bms:latest  # Use your Docker Hub image
+    container_name: bms-app
+    restart: unless-stopped
+    ports:
+      - "3010:3000"      # Maps container port to host port for local access
+    networks:
+      - bms-net
+
+networks:
+  bms-net:
+    driver: bridge
